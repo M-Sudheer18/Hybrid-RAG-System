@@ -1,0 +1,85 @@
+.dashboard-header {
+    text-align: center;
+    margin: 48px 0 56px;
+}
+
+.dashboard-header h1 {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto 16px;
+    text-align: center;
+
+    font-size: clamp(32px, 4vw, 42px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+}
+
+.dashboard-header .lead {
+    margin: 0 auto;
+    max-width: 24em;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.card:hover {
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.05);
+    transform: translateY(-2px);
+}
+
+.card-content h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.card-content p {
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 32px;
+    font-size: 15.5px;
+}
+
+.card-btn {
+    text-align: center;
+    width: 100%;
+}
+
+.status-bar {
+    text-align: center;
+    padding: 18px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    color: var(--muted);
+    font-size: 14.5px;
+    font-weight: 500;
+}
+
+.status-bar span {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}

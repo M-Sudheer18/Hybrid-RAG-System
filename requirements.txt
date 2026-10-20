@@ -1,0 +1,11 @@
+pydantic
+pydantic_settings
+pypdf
+langchain
+langchain_core
+langchain_community
+fastembed
+fastapi
+python-multipart
+uvicorn
+streamlit

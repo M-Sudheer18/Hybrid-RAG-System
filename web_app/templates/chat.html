@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Chat - Hybrid RAG Assistant</title>
+    <link rel="icon" type="image/png" href="/static/images/app_icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='css/index.css') }}"
+    >
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='css/chat.css') }}"
+    >
+</head>
+<body>
+    <main class="page chat-page">
+
+        <!-- Navigation -->
+        <header class="nav">
+            <a href="/home" class="brand">
+                Hybrid RAG Assistant
+            </a>
+
+            <div class="nav-actions">
+                <a href="/home" class="nav-link">Dashboard</a>
+                <a href="/pdf" class="nav-link">PDF Documents</a>
+                <a href="/docs" class="nav-link">API Docs</a>
+            </div>
+        </header>
+
+        <!-- Chat Header -->
+        <section class="chat-header">
+            <p class="eyebrow">DOCUMENT INTELLIGENCE</p>
+
+            <h1>Ask Your Documents</h1>
+
+            <p class="lead">
+                Ask questions about your uploaded PDFs and get
+                answers supported by relevant document sources.
+            </p>
+
+            <div class="knowledge-status" id="knowledgeStatus">
+                <span class="status-indicator"></span>
+                <span id="knowledgeStatusText">Checking knowledge base...</span>
+            </div>
+        </section>
+
+        <!-- Chat Container -->
+        <section class="chat-container">
+
+            <!-- Conversation Header -->
+            <div class="chat-toolbar">
+                <div>
+                    <h2>RAG Assistant</h2>
+                    <p>Your document-based AI assistant</p>
+                </div>
+
+                <button
+                    type="button"
+                    id="clearChatButton"
+                    class="clear-chat-button"
+                >
+                    Clear Chat
+                </button>
+            </div>
+
+            <!-- Error / Notice Area -->
+            <div
+                id="chatNotice"
+                class="chat-notice"
+                role="status"
+                aria-live="polite"
+                hidden
+            ></div>
+
+            <!-- Messages -->
+            <div
+                id="chatMessages"
+                class="chat-messages"
+                role="log"
+                aria-live="polite"
+                aria-label="Chat conversation"
+            >
+                <div class="welcome-message" id="welcomeMessage">
+                    <div class="assistant-avatar">AI</div>
+
+                    <div class="message-content">
+                        <h3>Hello! How can I help you?</h3>
+
+                        <p>
+                            Ask a question about the PDFs in your
+                            knowledge base. I'll search the relevant
+                            passages and provide an answer with sources
+                            when available.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Typing Indicator -->
+            <div
+                id="typingIndicator"
+                class="typing-indicator"
+                hidden
+                aria-live="polite"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>Searching documents and generating an answer...</p>
+            </div>
+            <!-- Message Composer -->
+            <form id="chatForm" class="chat-form">
+                <label for="messageInput" class="sr-only">
+                    Ask a question about your documents
+                </label>
+                <textarea
+                    id="messageInput"
+                    name="query"
+                    placeholder="Ask something about your PDFs..."
+                    rows="1"
+                    maxlength="5000"
+                    required
+                ></textarea>
+                <button
+                    type="submit"
+                    id="sendButton"
+                    class="send-button"
+                    disabled
+                    aria-label="Send message"
+                >
+                    Send
+                </button>
+            </form>
+            <p class="chat-disclaimer">
+                Answers are generated from retrieved document passages.
+                Verify important information against the cited sources.
+            </p>
+        </section>
+        <!-- Bottom Navigation -->
+        <section class="bottom-actions">
+            <a href="/home" class="btn btn-ghost">
+                Back to Dashboard
+            </a>
+            <a href="/pdf" class="btn btn-primary">
+                Manage PDF Documents
+            </a>
+        </section>
+    </main>
+    <!-- Markdown renderer -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- Sanitize rendered HTML for safety -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.6/purify.min.js"></script>
+
+    <!-- Chat functionality -->
+    <script src="{{ url_for('static', path='js/chat.js') }}"></script>
+</body>
+</html>

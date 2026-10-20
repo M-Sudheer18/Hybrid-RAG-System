@@ -1,0 +1,28 @@
+.landing-hero {
+    text-align: center;
+    margin: 72px 0 64px;
+}
+
+.landing-hero h1 {
+    max-width: 14em;
+    margin: 0 auto 20px;
+    font-size: clamp(34px, 5vw, 52px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+}
+
+.landing-hero .lead {
+    max-width: 32em;
+    margin: 0 auto 32px;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--muted);
+}
+
+.landing-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}

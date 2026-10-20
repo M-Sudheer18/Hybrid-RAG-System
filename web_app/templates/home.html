@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - RAG Assistant</title>
+    <link rel="icon" type="image/png" href="/static/images/app_icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/home.css') }}">
+</head>
+<body>
+    <main class="page">
+        <!--Navigation-->
+        <header class="nav">
+            <a href="/" class="brand" style="text-decoration: none; color: inherit;">Hybrid RAG Assistant</a>
+            <a href="/docs" class="nav-link">API Docs</a>
+        </header>
+
+        <!-- Header -->
+        <section class="dashboard-header">
+            <h1>Your Document Intelligence Workspace</h1>
+            <p class="lead">Manage your PDFs and ask questions.</p>
+        </section>
+
+        <!-- Main Grid -->
+        <section class="dashboard-grid">
+            <div class="card">
+                <div class="card-content">
+                    <h2>PDF Documents</h2>
+                    <p>Upload & manage your knowledge base.</p>
+                </div>
+                <a href="/pdf" class="btn btn-ghost card-btn">Open Documents</a>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h2>RAG Chat</h2>
+                    <p>Ask questions about your documents.</p>
+                </div>
+                <a href="/chat" class="btn btn-primary card-btn">Open Chat</a>
+            </div>
+        </section>
+
+        <!-- Footer / Status Bar -->
+        <div class="status-bar">
+            Knowledge Base: <span id="docCount">...</span> Documents • Indexed
+        </div>
+    </main>
+    <script src="{{ url_for('static', path='js/home.js') }}"></script>
+</body>
+</html>

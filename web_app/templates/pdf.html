@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Documents - Hybrid RAG Assistant</title>
+    <link rel="icon" type="image/png" href="/static/images/app_icon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{{ url_for('static', path='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/pdf.css') }}">
+</head>
+<body>
+    <main class="page">
+        <!-- Navigation -->
+        <header class="nav">
+            <a href="/home" class="brand">Hybrid RAG Assistant</a>
+            <div class="nav-actions">
+                <a href="/home" class="nav-link">Dashboard</a>
+                <a href="/chat" class="nav-link">Chat</a>
+                <a href="/docs" class="nav-link">API Docs</a>
+            </div>
+        </header>
+        <!-- Page Header -->
+        <section class="pdf-header">
+            <div>
+                <p class="eyebrow">KNOWLEDGE BASE</p>
+                <h1>PDF Documents</h1>
+                <p class="lead">
+                    View the documents currently available to the RAG assistant
+                    and upload new PDFs to expand your knowledge base.
+                </p>
+            </div>
+        </section>
+        <!-- Existing Documents -->
+        <section class="documents-section">
+            <div class="section-heading">
+                <div>
+                    <h2>Existing Documents</h2>
+                    <p>These documents are currently available for answering your questions.</p>
+                </div>
+                <div class="document-count">
+                    <span id="documentCount">...</span>
+                    <span>Documents</span>
+                </div>
+            </div>
+
+            <!-- Loading -->
+            <div id="documentsLoading" class="state-message">
+                Loading documents...
+            </div>
+
+            <!-- Empty State -->
+            <div id="documentsEmpty" class="state-message empty-state" hidden>
+                <h3>No documents available</h3>
+                <p>Upload at least one PDF to create your knowledge base.</p>
+            </div>
+
+            <!-- Document List -->
+            <div id="documentsList" class="documents-list" hidden>
+                <!-- Documents will be inserted here by JavaScript -->
+            </div>
+        </section>
+        <!-- Upload Section -->
+        <section class="upload-section">
+            <div class="upload-header">
+                <div>
+                    <p class="eyebrow">EXPAND KNOWLEDGE BASE</p>
+                    <h2>Upload a New PDF</h2>
+                    <p>Add another PDF to your existing document collection.</p>
+                </div>
+            </div>
+
+            <form id="uploadForm" class="upload-form">
+                <label for="pdfFile" id="dropZone" class="drop-zone">
+                    <div class="upload-icon">↑</div>
+                    <h3>Choose a PDF file</h3>
+                    <p>Click here to select a PDF from your computer.</p>
+                    <span class="file-hint">PDF files only</span>
+                    <input type="file" id="pdfFile" name="file" accept=".pdf,application/pdf" hidden>
+                </label>
+
+                <!-- Selected File -->
+                <div id="selectedFile" class="selected-file" hidden>
+                    <div>
+                        <strong id="selectedFileName"></strong>
+                        <span id="selectedFileSize"></span>
+                    </div>
+                    <button type="button" id="removeFile" class="remove-file">Remove</button>
+                </div>
+
+                <button type="submit" id="uploadButton" class="btn btn-primary upload-button" disabled>
+                    Upload & Index PDF
+                </button>
+
+                <!-- Upload Status -->
+                <div id="uploadStatus" class="upload-status" hidden></div>
+            </form>
+        </section>
+        <!-- Navigation -->
+        <section class="bottom-actions">
+            <a href="/home" class="btn btn-ghost">Back to Dashboard</a>
+            <a href="/chat" class="btn btn-primary">Go to RAG Chat</a>
+        </section>
+    </main>
+    <script src="{{ url_for('static', path='js/pdf.js') }}"></script>
+</body>    
+</html>

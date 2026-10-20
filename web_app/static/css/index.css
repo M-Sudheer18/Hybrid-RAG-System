@@ -1,0 +1,216 @@
+:root {
+    --bg: #f6f7fb;
+    --surface: #ffffff;
+    --ink: #0f172a;
+    --muted: #5b6478;
+    --line: #e3e6ef;
+    --accent: #4f46e5;
+    --accent-dark: #4338ca;
+    --accent-soft: #eef0ff;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    min-height: 100vh;
+    font-family: "Plus Jakarta Sans",
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: var(--bg);
+    color: var(--ink);
+
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Main Page */
+.page {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 28px 40px 64px;
+}
+
+/*  NAVIGATION */
+
+.nav {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 24px;
+}
+
+.brand {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.nav-link {
+    color: var(--muted);
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: var(--ink);
+}
+
+/* HERO */
+
+.landing-hero {
+    padding: 90px 0 80px;
+    text-align: center;
+}
+
+.landing-hero h1 {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    font-size: clamp(34px, 5vw, 48px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+
+.landing-hero .lead {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--muted);
+}
+
+.landing-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Buttons */
+.hero-text .actions {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
+}
+
+/* BUTTONS */
+
+.btn {
+    display: inline-block;
+
+    padding: 13px 22px;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: var(--accent-dark);
+}
+
+.btn-ghost {
+    border: 1px solid var(--line);
+
+    background: var(--surface);
+    color: var(--ink);
+}
+
+.btn-ghost:hover {
+    border-color: #c5cadb;
+}
+
+/* STEPS */
+
+.steps {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 32px;
+
+    padding-top: 36px;
+
+    border-top: 1px solid var(--line);
+}
+
+.step h2 {
+    font-size: 17px;
+    font-weight: 600;
+
+    margin-bottom: 6px;
+}
+
+.step p {
+    font-size: 15px;
+    line-height: 1.55;
+
+    color: var(--muted);
+}
+
+/* MOBILE */
+
+@media (max-width: 850px) {
+    .page {
+        padding: 20px 20px 48px;
+    }
+
+    .landing-hero {
+        padding: 70px 0 80px;
+    }
+
+    .landing-hero h1 {
+        max-width: 600px;
+        font-size: clamp(34px, 8vw, 42px);
+    }
+
+    .landing-hero .lead {
+        max-width: 550px;
+        font-size: 16px;
+    }
+
+    .landing-actions {
+        gap: 10px;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

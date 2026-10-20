@@ -1,0 +1,19 @@
+                   get_logger()
+                         │
+                         ▼
+                    Logger(name)
+                         │
+              ┌──────────┴──────────┐
+              ▼                     ▼
+       ConsoleHandler        RotatingFileHandler
+          INFO+                    DEBUG+
+              │                     │
+              ▼                     ▼
+          Terminal          rag_pipeline.log
+                                  │
+                           5 MB rotation
+                                  │
+                           ┌──────┴──────┐
+                           ▼             ▼
+                       .1 backup       .2 backup
+                       .3 backup

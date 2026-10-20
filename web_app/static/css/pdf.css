@@ -1,0 +1,212 @@
+/* Header & Layout */
+.pdf-header {
+    width: 100%;
+    text-align: center;
+    margin: 56px auto 56px;
+    overflow: hidden;
+}
+
+.pdf-header .eyebrow {
+    margin-bottom: 12px;
+}
+
+.pdf-header h1 {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    text-align: center;
+    font-size: clamp(38px, 5vw, 52px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+}
+
+.pdf-header .lead {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.document-count {
+    background-color: #F3F4F6;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+/* Document List */
+.documents-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.documents-list {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.document-card {
+    border: 1px solid #E5E7EB;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.document-card:hover {
+    border-color: #2563EB;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+}
+
+.doc-name {
+    font-weight: 600;
+    color: #111827;
+    font-size: 1rem;
+    word-break: break-all;
+}
+
+.doc-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    color: #6B7280;
+}
+
+.doc-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    width: fit-content;
+}
+
+.status-completed { background: #D1FAE5; color: #065F46; }
+.status-processing { background: #FEF3C7; color: #92400E; }
+.status-failed { background: #FEE2E2; color: #991B1B; }
+
+/* Upload Section */
+.upload-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+}
+
+.upload-header {
+    margin-bottom: 1.5rem;
+}
+
+.drop-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    border: 2px dashed #D1D5DB;
+    border-radius: 0.75rem;
+    background-color: #F9FAFB;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.drop-zone:hover, .drop-zone.drag-active {
+    border-color: #2563EB;
+    background-color: #EFF6FF;
+}
+
+.upload-icon {
+    font-size: 2rem;
+    color: #9CA3AF;
+    margin-bottom: 1rem;
+}
+
+.drop-zone h3 { margin-bottom: 0.25rem; color: #374151; }
+.drop-zone p { color: #6B7280; font-size: 0.875rem; margin-bottom: 0.5rem; }
+.file-hint { font-size: 0.75rem; color: #9CA3AF; font-weight: 500; }
+
+.selected-file {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #F3F4F6;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.selected-file strong { color: #111827; margin-right: 0.5rem; }
+.selected-file span { color: #6B7280; font-size: 0.875rem; }
+
+.remove-file {
+    background: none;
+    border: none;
+    color: #EF4444;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.remove-file:hover { text-decoration: underline; }
+
+.upload-button { width: 100%; margin-top: 1rem; }
+.upload-status {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    text-align: center;
+}
+.status-success { background: #D1FAE5; color: #065F46; }
+.status-error { background: #FEE2E2; color: #991B1B; }
+
+/* State Messages */
+.state-message {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #6B7280;
+}
+.empty-state h3 { color: #374151; margin-bottom: 0.5rem; }
+
+.bottom-actions {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2rem;
+    border-top: 1px solid #E5E7EB;
+}
+.brand {
+    text-decoration: none;
+    color: var(--ink);
+}
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}

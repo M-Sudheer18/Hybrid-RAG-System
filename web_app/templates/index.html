@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybrid RAG Assistant</title>
+    <link rel="icon" type="image/png" href="/static/images/app_icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/landing.css') }}">
+</head>
+<body>
+    <main class="page">
+        <header class="nav">
+            <span class="brand">Hybrid RAG Assistant</span>
+            <a href="/docs" class="nav-link">API docs</a>
+        </header>
+ 
+        <section class="landing-hero">
+            <h1>Ask questions across all your PDFs</h1>
+            <p class="lead">
+                Upload your documents and get answers with the exact
+                source pages, so you can check every claim.
+            </p>
+            <div class="landing-actions">
+                <a href="/home" class="btn btn-primary">Get started</a>
+                <a href="/docs" class="btn btn-ghost">Read the docs</a>
+            </div>
+        </section>
+ 
+        <section class="steps">
+            <div class="step">
+                <h2>Upload</h2>
+                <p>Add one PDF or many.</p>
+            </div>
+            <div class="step">
+                <h2>Search</h2>
+                <p>Finds the passages that match your question.</p>
+            </div>
+            <div class="step">
+                <h2>Answer</h2>
+                <p>Writes a reply and links the sources.</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
