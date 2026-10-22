@@ -13,7 +13,10 @@ class EmbeddingModelWrapper:
             logger.info(f"Loading Fast Embedding Model: [{settings.EMBEDDING_MODEL_NAME}]")
             try:
                 cls._instance = FastEmbedEmbeddings(
-                    model_name=settings.EMBEDDING_MODEL_NAME
+                    model_name=settings.EMBEDDING_MODEL_NAME,
+                    batch_size=8,
+                    parallel=None,
+                    threads=1,
                 )
                 logger.info("Embedding model loaded successfully.")
             except Exception as e:
