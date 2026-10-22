@@ -4,6 +4,7 @@ import streamlit as st
 from pages.home import show_home
 from pages.pdf import show_pdf_page
 from pages.chat import show_chat_page
+from streamlit.errors import StreamlitSecretNotFoundError
 
 APP_ICON = Path(__file__).parent / "assets" / "app_icon.png"
 
@@ -14,10 +15,15 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-API_BASE_URL = os.getenv(
-    "FASTAPI_BASE_URL",
-    "http://127.0.0.1:8000"
-).rstrip("/")
+try:
+    API_BASE_URL = st.secrets["FASTAPI_BASE_URL"]
+except (KeyError, StreamlitSecretNotFoundError):
+    API_BASE_URL = os.getenv(
+        "FASTAPI_BASE_URL",
+        "http://127.0.0.1:8000"
+    )
+
+API_BASE_URL = API_BASE_URL.rstrip("/")
 
 def landing_page():
     st.markdown(
