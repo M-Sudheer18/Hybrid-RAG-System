@@ -8,4 +8,4 @@ fastembed
 fastapi
 python-multipart
 uvicorn
-streamlit
+gunicorn
