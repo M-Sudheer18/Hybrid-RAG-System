@@ -12,8 +12,10 @@ env/
 __pycache__/
 *.py[cod]
 
-data/
-raw_pdfs/
+data/*
+!data/raw_pdfs/
+data/raw_pdfs/*
+!data/raw_pdfs/*.pdf
 temp_uploads/
 uploads/
 web_app/uploads/
